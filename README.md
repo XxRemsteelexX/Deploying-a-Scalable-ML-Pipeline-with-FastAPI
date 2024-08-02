@@ -3,6 +3,9 @@ Working in a command line environment is recommended for ease of use with git an
 # Environment Set up (pip or conda)
 * Option 1: use the supplied file `environment.yml` to create a new environment with conda
 * Option 2: use the supplied file `requirements.txt` to create a new environment with pip
+
+# Link to repository
+https://github.com/XxRemsteelexX/Deploying-a-Scalable-ML-Pipeline-with-FastAPI.git
     
 ## Repositories
 * Create a directory for the project and initialize git.
