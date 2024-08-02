@@ -1,9 +1,9 @@
 # Databricks notebook source
 import os
-from pathlib import path
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
-
+from pathlib import Path
 
 from ml.data import process_data
 from ml.model import (
