@@ -27,8 +27,8 @@ def train_model(X_train, y_train):
         Trained machine learning model.
     """
    # TODO: implement the function
-    hgc = RandomForestClassifier()
-    model = hgc.fit(X_train, y_train)
+    rfc = RandomForestClassifier()
+    model = rfc.fit(X_train, y_train)
     return model
 
 
