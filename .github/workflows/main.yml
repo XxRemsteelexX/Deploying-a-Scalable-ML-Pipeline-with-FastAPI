@@ -1,27 +1,25 @@
-name: Python package # push package
+name: CI
 
-on: [push] # When this action runs.
+on: [push]
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest # Which OS this runs on, you can also build on Windows or MacOS.
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.8] # You can build against multiple Python versions.
+        python-version: ["3.10"]
 
     steps:
-    - uses: actions/checkout@v2 # Calling a pre-built GitHub Action which allows your Action to access your repository.
-    - name: Set up Python ${{ matrix.python-version }} # Name of an action that sets up Python.
-      uses: actions/setup-python@v2 # A pre-built GitHub Action that sets up a Python environment.
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies # The first step that isn't just calling another action.
+    - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip # Upgrade pip to the latest version.
-        pip install pytest # Install pytest.
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi # If we have a requirements.txt, then install it.
-    - name: Test with pytest # Final action which runs pytest. If any test fails, then this Action fails.
+        python -m pip install --upgrade pip
+        pip install pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Test with pytest
       run: |
         pytest
-        
