@@ -7,11 +7,6 @@ from sklearn.ensemble import RandomForestClassifier
 from pathlib import Path
 
 
-
-# TODO: add necessary import
-
-
-# TODO: implement the first test. Change the function name and input as needed
 def test_train_test_split_size():
     """
     checking that the sliced data is ready for testing
@@ -21,10 +16,8 @@ def test_train_test_split_size():
     data = pd.read_csv(str(data_path))
     train, test = train_test_split(data, test_size = 0.2)
     assert len(test) >= 2000
-    
 
 
-# TODO: implement the second test. Change the function name and input as needed
 def test_column_names():
     """
     testing that all features are in the data
@@ -54,7 +47,6 @@ def test_column_names():
     assert set(data.columns) == features
 
 
-# TODO: implement the third test. Change the function name and input as needed
 def test_model_type():
     """
     testing that the model is random forest classifier 
