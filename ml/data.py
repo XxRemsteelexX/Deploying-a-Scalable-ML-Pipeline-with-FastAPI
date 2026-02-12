@@ -1,4 +1,3 @@
-# Databricks notebook source
 import numpy as np
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 

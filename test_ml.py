@@ -1,5 +1,3 @@
-# Databricks notebook source
-
 import pytest
 import os
 import pandas as pd
