@@ -366,7 +366,22 @@ class TestAPIIntegration:
 
 class TestLoadScenarios:
     """Load testing scenarios using requests"""
-    
+
+    @pytest.fixture(autouse=True)
+    def setup(self):
+        """Setup for each test"""
+        # Wait for API to be ready
+        max_retries = 10
+        for i in range(max_retries):
+            try:
+                response = requests.get(f"{API_BASE_URL}/", timeout=5)
+                if response.status_code == 200:
+                    break
+            except requests.exceptions.RequestException:
+                if i == max_retries - 1:
+                    pytest.skip("API is not available")
+                time.sleep(2)
+
     def test_burst_load(self):
         """Test handling burst load"""
         test_data = {
