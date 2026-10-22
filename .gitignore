@@ -27,3 +27,7 @@ logs/
 build/
 dist/
 *.egg-info/
+
+# Local secrets (never commit)
+.env
+monitoring/grafana/grafana.env
