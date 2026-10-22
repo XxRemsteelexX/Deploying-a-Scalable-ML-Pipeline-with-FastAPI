@@ -94,8 +94,10 @@ services:
     image: grafana/grafana:latest
     ports:
       - "3000:3000"
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
+    # Admin password comes from a local, untracked env file; nothing is committed.
+    # cp monitoring/grafana/grafana.env.example monitoring/grafana/grafana.env, then set GF_SECURITY_ADMIN_PASSWORD.
+    env_file:
+      - ./monitoring/grafana/grafana.env
     volumes:
       - grafana_data:/var/lib/grafana
       - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
